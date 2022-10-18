@@ -1,11 +1,13 @@
 """
 Api tests
 """
-
+import allure
 import pytest
 
 
 @pytest.mark.api
+@allure.description('Test sign up form')
+@allure.tag('API')
 def test_api_one():
     """
     api
