@@ -1,3 +1,7 @@
+"""
+Tests mobile application chess.com
+"""
+
 import pytest
 
 

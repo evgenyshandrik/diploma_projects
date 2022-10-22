@@ -4,3 +4,4 @@ allure-pytest
 python-dotenv==0.20.0
 Appium-Python-Client~=2.6.1
 requests
+Faker

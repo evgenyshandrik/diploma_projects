@@ -1,5 +1,5 @@
 """
-Api tests
+Api tests chess.com
 """
 import allure
 import pytest
