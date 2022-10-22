@@ -2,6 +2,7 @@
 Tests web version chess.com
 """
 import allure
+import pytest
 from allure_commons.types import AttachmentType
 from faker import Faker
 
@@ -15,6 +16,7 @@ URL_SIGN_UP = 'https://www.chess.com/register?returnUrl=https://www.chess.com/'
 URL_LOG_IN = 'https://www.chess.com/login_and_go?returnUrl=https://www.chess.com/'
 
 
+@pytest.mark.web
 @allure.description('Test open sign up page')
 def test_open_sign_up_page():
     """
@@ -31,6 +33,7 @@ def test_open_sign_up_page():
     assert browser.driver.current_url == URL_SIGN_UP, f'After redirect to sign page url should be {URL_SIGN_UP}'
 
 
+@pytest.mark.web
 @allure.description('Test open log in page')
 def test_open_log_in_page():
     """
@@ -47,6 +50,7 @@ def test_open_log_in_page():
     assert browser.driver.current_url == URL_LOG_IN, f'After redirect to page login page url should be {URL_LOG_IN}'
 
 
+@pytest.mark.web
 @allure.description('Test show password')
 def test_show_password():
     """
@@ -73,6 +77,7 @@ def test_show_password():
     assert password == password_from_input, f'Password should be equals {password}'
 
 
+@pytest.mark.web
 @allure.description('Test redirect to log in page from sign up')
 def test_redirect_to_log_in_page_from_sign_up():
     """
@@ -92,6 +97,7 @@ def test_redirect_to_log_in_page_from_sign_up():
     assert browser.driver.current_url == URL_LOG_IN, f'After redirect to log in page url should be {URL_LOG_IN}'
 
 
+@pytest.mark.web
 @allure.description('Test redirect to sign up page from log in')
 def test_redirect_to_sign_up_page_from_log_in():
     # TODO(users) will be fail after too many retries - captcha will turn on
