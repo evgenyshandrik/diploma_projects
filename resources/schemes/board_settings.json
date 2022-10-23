@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "pieceStyle": {
+      "type": "string"
+    },
+    "colorScheme": {
+      "type": "string"
+    },
+    "animationType": {
+      "type": "string"
+    },
+    "moveMethod": {
+      "type": "string"
+    },
+    "boardCoords": {
+      "type": "string"
+    },
+    "highlightMoves": {
+      "type": "string"
+    },
+    "playSounds": {
+      "type": "string"
+    },
+    "soundTheme": {
+      "type": "string"
+    },
+    "boardSize": {
+      "type": "string"
+    },
+    "highlightLegalMoves": {
+      "type": "string"
+    },
+    "darkMode": {
+      "type": "boolean"
+    },
+    "isWhiteOnBottom": {
+      "type": "boolean"
+    },
+    "showTimestamps": {
+      "type": "integer"
+    },
+    "moveListDisplayType": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "pieceStyle",
+    "colorScheme",
+    "animationType",
+    "moveMethod",
+    "boardCoords",
+    "highlightMoves",
+    "playSounds",
+    "soundTheme",
+    "boardSize",
+    "highlightLegalMoves",
+    "darkMode",
+    "isWhiteOnBottom",
+    "showTimestamps",
+    "moveListDisplayType"
+  ]
+}

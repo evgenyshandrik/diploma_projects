@@ -1,12 +1,7 @@
 """
 Controls on the pages
 """
-from selene.support.shared.jquery_style import s
-from typing import Optional
-
-from selene import have, command
 from selene.core.entity import Element
-from selene.support.shared import browser
 
 
 class Input(object):

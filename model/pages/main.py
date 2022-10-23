@@ -15,7 +15,7 @@ class Main(object):
 
     @allure.step('Click login button')
     def click_login_button(self):
-        s('.button auth login ui_v5-button-component ui_v5-button-primary').click()
+        s('//*[@id="sb"]/div[3]/a[9]').click()
         return self
 
     @allure.step('Click signup button')

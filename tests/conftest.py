@@ -3,12 +3,12 @@ Tests configuration
 """
 import os
 import time
-from datetime import date
-
 import allure
 import pytest
 from dotenv import load_dotenv
+from datetime import date
 
+from requests import Session
 from selene.support.shared import browser
 from selenium import webdriver
 
