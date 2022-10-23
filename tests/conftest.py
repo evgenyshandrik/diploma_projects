@@ -118,7 +118,7 @@ def config(request):
         mobile_app = request.config.getoption('--mobile_app')
         mobile_app = mobile_app if mobile_app != "" else DEFAULT_MOBILE_APP
 
-        mobile_device = request.config.getoption('--mobile_device').replace_all('_', ' ')
+        mobile_device = request.config.getoption('--mobile_device').replace('_', ' ')
 
         mobile_device_version = request.config.getoption('--mobile_device_version')
 
