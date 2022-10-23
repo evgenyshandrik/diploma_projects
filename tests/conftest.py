@@ -135,7 +135,6 @@ def config(request):
             "app": app,
             "deviceName": mobile_device,
             "os_version": mobile_device_version,
-            "platformName": 'android',
             "project": f'Test mobile app: {mobile_app}',
             "build": 'build-' + str(date.today()),
             "name": 'testing'
