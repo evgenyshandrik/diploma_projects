@@ -138,7 +138,7 @@ def config(request):
             "os_version": mobile_device_version,
             "platformName": "Android",
             "project": f'Test mobile app: {mobile_app}',
-            "name": 'testing'
+            "build": f'{mobile_device}, {mobile_device_version}'
         }
 
         print(desired_cap)
