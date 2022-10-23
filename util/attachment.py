@@ -53,7 +53,7 @@ def get_url_video(session_id: str):
     """
     api_browserstack = os.getenv('API_BROWSERSTACK')
     session = requests.Session()
-    session.auth = (os.getenv('LOGIN'), os.getenv('KEY'))
+    session.auth = (os.getenv('USER_BROWSERSTACK'), os.getenv('KEY_BROWSERSTACK'))
     response = session.get(
         f'{api_browserstack}/sessions/{session_id}.json')
     return response.json().get('automation_session').get('video_url')

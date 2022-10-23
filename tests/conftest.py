@@ -79,7 +79,9 @@ def config(request):
     """
     Config test
     """
-    type_of_test = request.config.getoption('--type')
+    # type_of_test = request.config.getoption('--type')
+
+    type_of_test = 'mobile'
 
     if type_of_test == 'web':
         web_remote_driver = request.config.getoption('--web_remote_driver')
