@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 from datetime import date
 
 from selene.support.shared import browser
-from selenium import webdriver
+from appium import webdriver
 from selenium.webdriver.common.by import By
 
 from util.resources import path
@@ -81,7 +81,9 @@ def config(request):
     """
     Config test
     """
-    type_of_test = request.config.getoption('--type')
+    # type_of_test = request.config.getoption('--type')
+
+    type_of_test = 'mobile'
 
     if type_of_test == 'web':
         web_remote_driver = request.config.getoption('--web_remote_driver')
@@ -131,13 +133,12 @@ def config(request):
         file_for_upload = [('file', (mobile_app, open(path(mobile_app), 'rb')))]
         response = requests.post(f"https://{USER}:{KEY}@{API_BROWSERSTACK_UPLOAD_FILE}", files=file_for_upload)
         app = response.json()['app_url']
-        print("!!!!!!!!!!!: " + app)
 
         desired_cap = {
-            "app": "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c",
+            "app": app,
             "deviceName": mobile_device,
             "os_version": mobile_device_version,
-            "platformName": "android",
+            "platformName": "Android",
             "project": f'Test mobile app: {mobile_app}',
             "build": 'build-' + str(date.today()),
             "name": 'testing'
@@ -145,13 +146,12 @@ def config(request):
 
         print(desired_cap)
 
-        driver = webdriver.Remote(
+        browser.config.driver = webdriver.Remote(
             command_executor=f"http://{USER}:{KEY}@{APPIUM_BROWSERSTACK}/wd/hub",
             desired_capabilities=desired_cap
         )
 
-        driver.find_element(By.ID, 'csddf')
-
+        # driver.find_element(By.ID, 'csddf')
 
 
 @allure.step('Open page: {url}')
