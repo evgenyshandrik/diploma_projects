@@ -121,13 +121,13 @@ def config(request):
 
         mobile_device_version = request.config.getoption('--mobile_device_version')
 
-        USER = os.getenv('USER_BROWSERSTACK')
-        KEY = os.getenv('KEY_BROWSERSTACK')
-        APPIUM_BROWSERSTACK = os.getenv('APPIUM_BROWSERSTACK')
-        API_BROWSERSTACK_UPLOAD_FILE = os.getenv('API_BROWSERSTACK_UPLOAD_FILE')
+        user = os.getenv('USER_BROWSERSTACK')
+        key = os.getenv('KEY_BROWSERSTACK')
+        appium_browserstack = os.getenv('APPIUM_BROWSERSTACK')
+        api_browserstack_upload_file = os.getenv('API_BROWSERSTACK_UPLOAD_FILE')
 
         file_for_upload = [('file', (mobile_app, open(path(mobile_app), 'rb')))]
-        response = requests.post(f"https://{USER}:{KEY}@{API_BROWSERSTACK_UPLOAD_FILE}", files=file_for_upload)
+        response = requests.post(f"https://{user}:{key}@{api_browserstack_upload_file}", files=file_for_upload)
         app = response.json()['app_url']
 
         desired_cap = {
@@ -141,7 +141,7 @@ def config(request):
         }
 
         browser.config.driver = webdriver.Remote(
-            command_executor=f"http://{USER}:{KEY}@{APPIUM_BROWSERSTACK}/wd/hub",
+            command_executor=f"http://{user}:{key}@{appium_browserstack}/wd/hub",
             desired_capabilities=desired_cap
         )
 

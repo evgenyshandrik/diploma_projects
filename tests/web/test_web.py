@@ -74,7 +74,7 @@ def test_successful_log_in():
 
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
     add_video_to_report()
-    
+
     application_manager.main_page.get_username_label().should(have.text(username))
 
 
