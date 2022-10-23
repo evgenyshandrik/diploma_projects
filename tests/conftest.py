@@ -143,10 +143,13 @@ def config(request):
 
         print(desired_cap)
 
-        browser.config.driver = webdriver.Remote(
+        driver = webdriver.Remote(
             command_executor=f"http://{USER}:{KEY}@{APPIUM_BROWSERSTACK}/wd/hub",
             desired_capabilities=desired_cap
         )
+
+        driver.find_element('dsfsdf')
+
 
 
 @allure.step('Open page: {url}')
