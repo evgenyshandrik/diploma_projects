@@ -4,6 +4,7 @@ Session util
 import json
 import allure
 import curlify
+import requests
 from requests import Session
 
 
@@ -25,15 +26,23 @@ def allure_request_logger(function):
             attachment_type=allure.attachment_type.TEXT,
             extension='txt'
         )
-        allure.attach(
-            body=str(json.dumps(response.json(),
-                                skipkeys=True,
-                                allow_nan=True,
-                                indent=4)).encode('utf-8'),
-            name='Response',
-            attachment_type=allure.attachment_type.TEXT,
-            extension='txt'
-        )
+        try:
+            allure.attach(
+                body=str(json.dumps(response.json(),
+                                    skipkeys=True,
+                                    allow_nan=True,
+                                    indent=4)).encode('utf-8'),
+                name='Response',
+                attachment_type=allure.attachment_type.TEXT,
+                extension='txt'
+            )
+        except requests.exceptions.JSONDecodeError:
+            allure.attach(
+                body=response.text,
+                name='Response',
+                attachment_type=allure.attachment_type.TEXT,
+                extension='txt'
+            )
         return response
 
     return wrapper
