@@ -3,6 +3,7 @@ Tests mobile application chess.com
 """
 
 import pytest
+from selene.support.shared import browser
 
 
 @pytest.mark.mobile
