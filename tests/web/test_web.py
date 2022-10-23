@@ -9,7 +9,7 @@ from faker import Faker
 from selene.support.shared import browser
 from model import application_manager
 from tests.conftest import open_page
-from util.attachment import take_screenshot, add_video
+from util.attachment import take_screenshot, add_video_to_report
 
 URL_MAIN = 'https://www.chess.com'
 URL_SIGN_UP = 'https://www.chess.com/register?returnUrl=https://www.chess.com/'
@@ -28,7 +28,7 @@ def test_open_sign_up_page():
         click_signup_button()
 
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
-    add_video('Video steps of test')
+    add_video_to_report()
 
     assert browser.driver.current_url == URL_SIGN_UP, f'After redirect to sign page url should be {URL_SIGN_UP}'
 
@@ -45,7 +45,7 @@ def test_open_log_in_page():
         click_login_button()
 
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
-    add_video('Video steps of test')
+    add_video_to_report()
 
     assert browser.driver.current_url == URL_LOG_IN, f'After redirect to page login page url should be {URL_LOG_IN}'
 
@@ -72,7 +72,7 @@ def test_show_password():
         .get_attribute('value')
 
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
-    add_video('Video steps of test')
+    add_video_to_report()
 
     assert password == password_from_input, f'Password should be equals {password}'
 
@@ -92,7 +92,7 @@ def test_redirect_to_log_in_page_from_sign_up():
         .click_log_in_button()
 
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
-    add_video('Video steps of test')
+    add_video_to_report()
 
     assert browser.driver.current_url == URL_LOG_IN, f'After redirect to log in page url should be {URL_LOG_IN}'
 
@@ -100,7 +100,7 @@ def test_redirect_to_log_in_page_from_sign_up():
 @pytest.mark.web
 @allure.description('Test redirect to sign up page from log in')
 def test_redirect_to_sign_up_page_from_log_in():
-    # TODO(users) will be fail after too many retries - captcha will turn on
+    # TODO (users): will be fail after too many retries - captcha will turn on
     """
     Test redirect to sign up page from log in
     """
@@ -123,6 +123,6 @@ def test_redirect_to_sign_up_page_from_log_in():
         .get_attribute('value')
 
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
-    add_video('Video steps of test')
+    add_video_to_report()
 
     assert username == username_after_sign_up, f'Username after login should be equals before login: {username}'

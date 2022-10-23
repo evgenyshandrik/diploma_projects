@@ -7,11 +7,9 @@ import allure
 import pytest
 import requests
 from dotenv import load_dotenv
-from datetime import date
 
 from selene.support.shared import browser
 from appium import webdriver
-from selenium.webdriver.common.by import By
 
 from util.resources import path
 
@@ -64,7 +62,7 @@ def pytest_addoption(parser):
 
     parser.addoption(
         '--mobile_device_version',
-        default='9.0',
+        default='10.0',
         help='mobile device version'
     )
 
@@ -81,7 +79,8 @@ def config(request):
     """
     Config test
     """
-    type_of_test = request.config.getoption('--type')
+    # type_of_test = request.config.getoption('--type')
+    type_of_test = 'mobile'
 
     if type_of_test == 'web':
         web_remote_driver = request.config.getoption('--web_remote_driver')
@@ -138,10 +137,9 @@ def config(request):
             "os_version": mobile_device_version,
             "platformName": "Android",
             "project": f'Test mobile app: {mobile_app}',
-            "build": f'{mobile_device}, {mobile_device_version}'
+            "build": f'{mobile_device}, {mobile_device_version}',
+            'name': f'{mobile_device}, {mobile_device_version}'
         }
-
-        print(desired_cap)
 
         browser.config.driver = webdriver.Remote(
             command_executor=f"http://{USER}:{KEY}@{APPIUM_BROWSERSTACK}/wd/hub",
