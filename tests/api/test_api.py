@@ -7,7 +7,6 @@ import os
 import allure
 import jsonschema
 import pytest
-import requests
 
 from tests.api.base_session import base_session
 
