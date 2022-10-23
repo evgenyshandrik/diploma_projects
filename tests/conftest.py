@@ -130,6 +130,7 @@ def config(request):
         file_for_upload = [('file', (mobile_app, open(path(mobile_app), 'rb')))]
         response = requests.post(f"https://{USER}:{KEY}@{API_BROWSERSTACK_UPLOAD_FILE}", files=file_for_upload)
         app = response.json()['app_url']
+        print("!!!!!!!!!!!: " + app)
 
         desired_cap = {
             "app": app,
@@ -139,6 +140,8 @@ def config(request):
             "build": 'build-' + str(date.today()),
             "name": 'testing'
         }
+
+        print('desired_cap: ' + desired_cap)
 
         browser.config.driver = webdriver.Remote(
             command_executor=f"http://{USER}:{KEY}@{APPIUM_BROWSERSTACK}/wd/hub",
