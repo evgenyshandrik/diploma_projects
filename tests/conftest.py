@@ -141,7 +141,7 @@ def config(request):
             "name": 'testing'
         }
 
-        print('desired_cap: ' + desired_cap)
+        print(desired_cap)
 
         browser.config.driver = webdriver.Remote(
             command_executor=f"http://{USER}:{KEY}@{APPIUM_BROWSERSTACK}/wd/hub",
