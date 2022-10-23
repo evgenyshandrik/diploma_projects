@@ -4,8 +4,6 @@ Page object: main
 import allure
 
 from selene.support.shared.jquery_style import s
-from selenium.webdriver.common.by import By
-from selene.support.shared import browser
 
 
 class Main(object):
@@ -30,4 +28,4 @@ class Main(object):
 
     @allure.step('Get username label')
     def get_username_label(self):
-        return browser.config.driver.find_element(By.CSS_SELECTOR, 'home-username-link')
+        return s('//*[@id="tb"]/div[2]/div/a[2]')

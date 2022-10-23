@@ -1,10 +1,13 @@
 """
 Tests web version chess.com
 """
+import os
+
 import allure
 import pytest
 from allure_commons.types import AttachmentType
 from faker import Faker
+from selene import have
 
 from selene.support.shared import browser
 from model import application_manager
@@ -51,30 +54,28 @@ def test_open_log_in_page():
 
 
 @pytest.mark.web
-@allure.description('Test show password')
-def test_show_password():
+@allure.description('Test successful log in')
+def test_successful_log_in():
     """
-    Test show password
+    Test successful log in
     """
     open_page(URL_MAIN)
 
-    application_manager.main_page. \
-        click_signup_button()
+    application_manager.main_page \
+        .click_login_button()
 
-    password = Faker().password()
+    username = os.getenv('USERNAME_CHESS_COM')
+    password = os.getenv('PASSWORD_CHESS_COM')
 
-    application_manager.sign_up_page \
+    application_manager.log_in \
+        .set_user_name(username) \
         .set_user_password(password) \
-        .show_password()
-
-    password_from_input = application_manager.sign_up_page \
-        .get_password_input() \
-        .get_attribute('value')
+        .submit_form()
 
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
     add_video_to_report()
-
-    assert password == password_from_input, f'Password should be equals {password}'
+    
+    application_manager.main_page.get_username_label().should(have.text(username))
 
 
 @pytest.mark.web
@@ -98,11 +99,11 @@ def test_redirect_to_log_in_page_from_sign_up():
 
 
 @pytest.mark.web
-@allure.description('Test redirect to sign up page from log in')
-def test_redirect_to_sign_up_page_from_log_in():
+@allure.description('Test successful sign up')
+def test_successful_sign_up():
     # TODO (users): will be fail after too many retries - captcha will turn on
     """
-    Test redirect to sign up page from log in
+    Test successful sign up
     """
     open_page(URL_MAIN)
 
@@ -118,11 +119,7 @@ def test_redirect_to_sign_up_page_from_log_in():
         .set_user_password(faker.password()) \
         .submit_form()
 
-    username_after_sign_up = application_manager.main_page \
-        .get_username_label() \
-        .get_attribute('value')
-
     take_screenshot(name='Screenshot', type_file=AttachmentType.PNG)
     add_video_to_report()
 
-    assert username == username_after_sign_up, f'Username after login should be equals before login: {username}'
+    application_manager.main_page.click_cross_in_modal_view().get_username_label().should(have.text(username))

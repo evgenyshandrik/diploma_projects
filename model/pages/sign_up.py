@@ -5,10 +5,8 @@ import allure
 
 from selene import command
 from selene.support.shared.jquery_style import s
-from selenium.webdriver.common.by import By
-from selene.support.shared import browser
 
-from model.controls.controls import Input, PasswordInput
+from model.controls.controls import Input
 
 
 class SignUp(object):
@@ -30,14 +28,8 @@ class SignUp(object):
 
     @allure.step('Set user password: {password}')
     def set_user_password(self, password: str):
-        password_input = PasswordInput(s('#registration_password'))
+        password_input = Input(s('#registration_password'))
         password_input.type(password)
-        return self
-
-    @allure.step('Show user password')
-    def show_password(self):
-        password_input = PasswordInput(s('#registration_password'))
-        password_input.show_password()
         return self
 
     @allure.step('Submit form')
@@ -47,7 +39,7 @@ class SignUp(object):
 
     @allure.step('Get password input')
     def get_password_input(self):
-        return browser.config.driver.find_element(By.ID, 'registration_password')
+        return s('#registration_password')
 
     @allure.step('Click login button')
     def click_log_in_button(self):

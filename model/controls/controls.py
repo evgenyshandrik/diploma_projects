@@ -2,6 +2,8 @@
 Controls on the pages
 """
 from selene.core.entity import Element
+from selene.support.shared import browser
+from selenium.webdriver.common.by import By
 
 
 class Input(object):
@@ -14,12 +16,3 @@ class Input(object):
 
     def type(self, value: str):
         self.element.type(value)
-
-
-class PasswordInput(Input):
-    """
-    Page object password input
-    """
-
-    def show_password(self):
-        self.element.element('/html/body/div[1]/div/main/div/div/div[1]/form/div[3]/div/div/span[2]').click()
