@@ -9,6 +9,7 @@ import jsonschema
 import pytest
 
 from tests.api.base_session import base_session
+from util.resources import path
 
 URL_CHESS_COM = 'https://www.chess.com'
 STATUS_CODE_OK = 'Status code should be OK'
@@ -95,7 +96,7 @@ def scheme_validation(response, controller_name):
     """
     Json schemes validation
     """
-    with open(f'../../resources/schemes/{controller_name}.json', encoding='utf-8') as scheme:
+    with open(path(f'schemes/{controller_name}.json'), encoding='utf-8') as scheme:
         try:
             jsonschema.validate(response.json(), json.loads(scheme.read()))
         except jsonschema.ValidationError:
