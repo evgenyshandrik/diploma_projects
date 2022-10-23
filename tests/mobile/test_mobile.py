@@ -25,7 +25,7 @@ def test_elements_on_main_screen_unauthorized_user():
     browser.element((AppiumBy.ID, SETTING_BUTTON_LOCATOR)).should(be.visible)
     browser.element((AppiumBy.ID, "com.chess:id/newGameBtn")).should(be.visible)
 
-    # add_video_from_browserstack_to_report(browser.driver.session_id)
+    add_video_from_browserstack_to_report(browser.driver.session_id)
 
     browser.config.driver.quit()
 
@@ -66,7 +66,7 @@ def test_elements_on_settings_screen():
 
 @pytest.mark.mobile
 @allure.description('Test version application')
-def test_elements_on_settings_screen():
+def test_version_application():
     """
     Test version application
     """
@@ -80,7 +80,7 @@ def test_elements_on_settings_screen():
 
 @pytest.mark.mobile
 @allure.description('Test elements on sign up screen')
-def test_elements_on_settings_screen():
+def test_elements_on_sign_up_screen():
     """
     Test elements on sign up screen
     """
