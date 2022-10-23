@@ -81,9 +81,7 @@ def config(request):
     """
     Config test
     """
-    # type_of_test = request.config.getoption('--type')
-
-    type_of_test = 'mobile'
+    type_of_test = request.config.getoption('--type')
 
     if type_of_test == 'web':
         web_remote_driver = request.config.getoption('--web_remote_driver')
@@ -140,7 +138,6 @@ def config(request):
             "os_version": mobile_device_version,
             "platformName": "Android",
             "project": f'Test mobile app: {mobile_app}',
-            "build": 'build-' + str(date.today()),
             "name": 'testing'
         }
 
@@ -150,8 +147,6 @@ def config(request):
             command_executor=f"http://{USER}:{KEY}@{APPIUM_BROWSERSTACK}/wd/hub",
             desired_capabilities=desired_cap
         )
-
-        # driver.find_element(By.ID, 'csddf')
 
 
 @allure.step('Open page: {url}')
