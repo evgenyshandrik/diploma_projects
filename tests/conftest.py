@@ -11,6 +11,7 @@ from datetime import date
 
 from selene.support.shared import browser
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 from util.resources import path
 
@@ -133,7 +134,7 @@ def config(request):
         print("!!!!!!!!!!!: " + app)
 
         desired_cap = {
-            "app": app,
+            "app": "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c",
             "deviceName": mobile_device,
             "os_version": mobile_device_version,
             "platformName": "android",
@@ -149,7 +150,7 @@ def config(request):
             desired_capabilities=desired_cap
         )
 
-        driver.find_element('dsfsdf')
+        driver.find_element(By.ID, 'csddf')
 
 
 
