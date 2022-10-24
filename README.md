@@ -43,9 +43,10 @@ Autotests for <b>chess.com</b>. Tests include web, API, mobile.
 </p>
 <br/>
                                                                                                              
-## 🔥 Run
+## 🔥 Run 
+###### (default values)
 ![image](https://user-images.githubusercontent.com/37364005/197501088-85ec3f27-a4cd-455a-9ba6-d2136d6ff33e.png)
-
+                                                                                                             
 | Name | Comment |
 | :--- | :--- | 
 | TYPE | type of tests |
@@ -55,3 +56,15 @@ Autotests for <b>chess.com</b>. Tests include web, API, mobile.
 | MOBILE_APP | app name |
 | MOBILE_DEVICE | device model |
 | MOBILE_DEVICE_VERSION | device version |
+
+                                                                                                             
+## 📄 Report
+<img width="1792" alt="All tests" src="https://user-images.githubusercontent.com/37364005/197510002-4fcba2c7-acdd-4800-a092-34c756999fd9.png">
+                                                                                                                                             
+<img width="1792" alt="Api tests" src="https://user-images.githubusercontent.com/37364005/197510965-12442e7d-ff0e-4042-9aa5-e614267f3bc3.png">
+
+![Mobile_test_allure](https://user-images.githubusercontent.com/37364005/197511022-1363df0c-e286-4645-a0ba-d46e27aa8c8a.png)
+
+<img width="1792" alt="Web test details" src="https://user-images.githubusercontent.com/37364005/197511074-5af7eb10-ef40-400a-b3f7-2ac4eb75e362.png">
+
+## 🎵 Telegram notification                                                                                                                                                   
