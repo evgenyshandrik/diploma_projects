@@ -1,5 +1,37 @@
 ## 🧾 Description
-![image](https://user-images.githubusercontent.com/37364005/197420945-ec74d087-21f9-425b-b610-6ee8b6ab8f9b.png)
+![image](https://user-images.githubusercontent.com/37364005/197420945-ec74d087-21f9-425b-b610-6ee8b6ab8f9b.png) <br />
+Autotests for <b>chess.com</b>. Tests include web, API, mobile.
+
+##### content  
+[Tests](tests)  
+[Run](run)  
+[Report](report)  
+ 
+
+## 🔥 Tests
+<a href='tests'></a>
+
+<ui>
+<li>WEB</li>
+  <ui>
+    <li>WEB</li>
+    <li>API</li>
+    <li>MOBILE</li>
+  </ui>
+<li>API</li>
+<ui>
+<li>WEB</li>
+<li>API</li>
+<li>MOBILE</li>
+</ui>
+<li>MOBILE</li>
+<ui>
+<li>WEB</li>
+<li>API</li>
+<li>MOBILE</li>
+</ui>
+</ui>
+
 
 
 
