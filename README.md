@@ -73,7 +73,9 @@ Autotests for <b>chess.com</b>. Tests include web, API, mobile.
 <br />
 Reports mobile/UI tests include video of steps of checks.
 <br />
+<br />
 API - logs, cURL and response body.
+<br />
 <br />
                                                                                                              
 <img width="1792" alt="All tests" src="https://user-images.githubusercontent.com/37364005/197510002-4fcba2c7-acdd-4800-a092-34c756999fd9.png">
