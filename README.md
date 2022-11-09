@@ -70,13 +70,9 @@ Autotests for <b>chess.com</b>. Tests include web, API, mobile.
 <br />
                                                                                                              
 ## 📄 Report
-<br />
-|Reports mobile/UI tests include video of steps of checks.
-<br />
-<br />
-API - logs, cURL and response body.
-<br />
-<br />
+
+>Reports mobile/UI tests include video of steps of checks. <br />
+>API - logs, cURL and response body.
                                                                                                              
 <img width="1792" alt="All tests" src="https://user-images.githubusercontent.com/37364005/197510002-4fcba2c7-acdd-4800-a092-34c756999fd9.png">
                                                                                                                                              
@@ -89,7 +85,6 @@ API - logs, cURL and response body.
 <br />
                                                                                                                                                     
 ## 🎵 Telegram notification
-<br />
-After run tests notification with results sending in Telegram channel.  
+>After run tests notification with results sending in Telegram channel.  
 <br />                                                                                   
 <img width="1325" alt="Telegram" src="https://user-images.githubusercontent.com/37364005/197517446-8dfd7c8c-cfe7-40bd-84d1-7c5c842b1eaa.png">
